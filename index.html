@@ -22,8 +22,7 @@
         }
         #my-video {
             width: 80%;
-            max-width: 1000px;
-            display: none;
+            max-width: 800px;
             border: 5px solid transparent;
             border-radius: 10px;
             animation: border-animation 5s infinite;
@@ -41,7 +40,7 @@
         .video-container {
             position: relative;
             width: 80%;
-            max-width: 1000px;
+            max-width: 800px;
         }
         .quality-controls {
             position: absolute;
@@ -103,9 +102,10 @@
         }
         .logo {
             position: absolute;
-            top: 350px;
-            left: 70px;
-            width: 200px; /* Adjust the width as needed */
+            top: -50px; /* Adjust the top position as needed */
+            left: 10px;
+            width: 150px; /* Adjust the width as needed */
+            z-index: 1; /* Ensure the logo appears above the video */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -137,7 +137,7 @@
         const videoPlayer = document.getElementById('my-video');
         const qualityControls = document.querySelector('.quality-controls');
         const qualityOptions = document.getElementById('quality-options');
-        const videoSrc = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
+        const videoSrc = "https://flipfit-cdn.akamaized.net/flip_hls/662aae7a42cd740019b91dec-3e114f/video_h1.m3u8";
 
         submitBtn.addEventListener('click', () => {
             if (passwordInput.value === PASSWORD) {
@@ -192,6 +192,4 @@
             const activeQuality = hls.levels[hls.currentLevel];
             qualityOptions.value = activeQuality.height;
         }
-    </script>
-</body>
-</html>
+        
