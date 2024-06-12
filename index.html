@@ -37,6 +37,14 @@
             padding: 10px 20px;
             font-size: 16px;
             margin-top: 10px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #submit-btn:hover {
+            background-color: #1c86ee; /* darker shade of blue on hover */
         }
         .video-container {
             position: relative;
@@ -108,7 +116,7 @@
             left: 70px;
             width: 200px; /* Adjust the width as needed */
         }
-        .support-btn {
+        #support-btn {
             padding: 10px 20px;
             font-size: 16px;
             margin-top: 10px;
@@ -117,9 +125,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            transform: translateY(10%); /* Move down by 10% */
         }
-        .support-btn:hover {
-            background-color: #1c86ee;
+        #support-btn:hover {
+            background-color: #1c86ee; /* darker shade of blue on hover */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -129,7 +140,6 @@
         <h1>Enter Password</h1>
         <input type="password" id="password" placeholder="Password">
         <button id="submit-btn">Submit</button>
-        <button id="support-btn" class="support-btn">Support</button>
     </div>
     <div class="video-container">
         <img src="https://s12.gifyu.com/images/SYRXk.png" alt="Logo" class="logo">
@@ -140,7 +150,6 @@
                 <!-- Options will be dynamically populated -->
             </select>
         </div>
-        <button id="support-btn-video" class="support-btn" style="position: absolute; bottom: 10px; right: 10px;">Support</button>
     </div>
     <footer><span class="footer-text">Made By <a href="" style="color: inherit; text-decoration: none;">Talha</a></span></footer>
 
@@ -150,7 +159,6 @@
         const passwordInput = document.getElementById('password');
         const submitBtn = document.getElementById('submit-btn');
         const supportBtn = document.getElementById('support-btn');
-        const supportBtnVideo = document.getElementById('support-btn-video');
         const videoContainer = document.querySelector('.video-container');
         const videoPlayer = document.getElementById('my-video');
         const qualityControls = document.querySelector('.quality-controls');
@@ -195,10 +203,6 @@
         });
 
         supportBtn.addEventListener('click', () => {
-            window.location.href = "https://t.me/talhasmovie_request_bot";
-        });
-
-        supportBtnVideo.addEventListener('click', () => {
             window.location.href = "https://t.me/talhasmovie_request_bot";
         });
 
