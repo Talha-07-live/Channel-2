@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3U8 Stream</title>
+    <title>Stream Player</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,7 +76,7 @@
             transition: background-color 0.3s ease;
         }
         .support-button:hover {
-            background-color: #28a745;
+            background-color: #218838;
         }
         footer {
             margin-top: 20px;
@@ -163,7 +163,11 @@
         const videoPlayer = document.getElementById('my-video');
         const qualityControls = document.querySelector('.quality-controls');
         const qualityOptions = document.getElementById('quality-options');
-        const videoSrc = "http://51.159.98.123/live/Minsa786/Fatima/109987.m3u8?token=GhMNBEZcR1gRA1IIVFBdVgdTAgVRXAkJUVNSAwcOV1tVCFRWVARVAAdEGBoXEhZRBVtrXgVGAgFSXw4MBBQUFhJUFzpcUEdYEVADDlRQXBZIFEBeDAEaClJKFURaXBRZQwNUUwIBR04RA0xMARQKVQhpUFIXDVtVQFxZQV9UGkEOXzoBUFkEDFdEDhpVREgWDUVEFVsKTVwOShVWWkxEAhVUR18XDVJSEUoWWwsTCkAWTxYNQyZ8Ek5EUkxHXVgQCF4LRw8WCFFGXhYURg8XaxZTR0MTAVldBxQVDhEIFE9DXAQdalcKDF0DV0wNCQpHRgwWBkNIGl0NCF5AXEppEwhVR18XBVJXAV4WRQ==";
+        const supportButton = document.querySelector('.support-button');
+
+        // Example URLs for HLS and MPD streams
+        const hlsVideoSrc = "http://51.159.98.123/live/Minsa786/Fatima/109987.m3u8?token=GhMNBEZcR1gRA1IIVFBdVgdTAgVRXAkJUVNSAwcOV1tVCFRWVARVAAdEGBoXEhZRBVtrXgVGAgFSXw4MBBQUFhJUFzpcUEdYEVADDlRQXBZIFEBeDAEaClJKFURaXBRZQwNUUwIBR04RA0xMARQKVQhpUFIXDVtVQFxZQV9UGkEOXzoBUFkEDFdEDhpVREgWDUVEFVsKTVwOShVWWkxEAhVUR18XDVJSEUoWWwsTCkAWTxYNQyZ8Ek5EUkxHXVgQCF4LRw8WCFFGXhYURg8XaxZTR0MTAVldBxQVDhEIFE9DXAQdalcKDF0DV0wNCQpHRgwWBkNIGl0NCF5AXEppEwhVR18XBVJXAV4WRQ==";
+        const mpdVideoSrc = "http://example.com/your-video.mpd"; // Replace with your MPD stream URL
 
         submitBtn.addEventListener('click', () => {
             if (passwordInput.value === PASSWORD) {
@@ -171,8 +175,11 @@
                 videoPlayer.style.display = 'block';
                 qualityControls.style.display = 'block';
                 
+                // Determine which stream type to use based on the URL
+                const videoSrc = isHlsVideo(hlsVideoSrc) ? hlsVideoSrc : mpdVideoSrc;
+
                 if (Hls.isSupported()) {
-                    var hls = new Hls();
+                    const hls = new Hls();
                     hls.loadSource(videoSrc);
                     hls.attachMedia(videoPlayer);
                     hls.on(Hls.Events.MANIFEST_PARSED, function() {
@@ -191,7 +198,7 @@
                         hls.currentLevel = selectedLevel;
                     });
 
-                } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                } else if (videoPlayer.canPlayType('application/dash+xml')) {
                     videoPlayer.src = videoSrc;
                     videoPlayer.addEventListener('loadedmetadata', function() {
                         videoPlayer.play();
@@ -222,6 +229,5 @@
         function openSupport() {
             window.open("https://t.me/talhasmovie_request_bot", "_blank");
         }
-    </script>
-</body>
-</html>
+
+        
