@@ -37,6 +37,27 @@
             hls.on(Hls.Events.MANIFEST_PARSED, function() {
                 video.play();
             });
+
+            // Handle Hls.js errors
+            hls.on(Hls.Events.ERROR, function(event, data) {
+                if (data.fatal) {
+                    switch(data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.error('HLS.js: Fatal network error encountered, cannot recover.');
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.error('HLS.js: Fatal media error encountered, cannot recover.');
+                            break;
+                        default:
+                            console.error('HLS.js: A fatal error occurred:', data);
+                            break;
+                    }
+                    hls.destroy();
+                } else {
+                    console.warn('HLS.js: Non-fatal error occurred:', data);
+                }
+            });
+
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
             const video = document.getElementById('my-video');
             video.src = videoSrc;
