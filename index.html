@@ -56,12 +56,13 @@
         }
         .logo {
             position: absolute;
-            top: 40px; /* Adjusted top position */
+            top: 20px; /* Adjusted top position */
             left: 50%;
             transform: translateX(-50%);
+            z-index: 1; /* Ensure the logo is above other content */
         }
         .logo img {
-            width: 100%; /* Keep the logo size unchanged */
+            width: 80%; /* Adjusted size of the logo */
         }
         footer {
             margin-top: 20px;
@@ -156,10 +157,5 @@
                     var hls = new Hls();
                     hls.loadSource(videoSrc);
                     hls.attachMedia(videoPlayer);
-                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        videoPlayer.play();
-                        populateQualityOptions(hls);
-                    });
 
-                    hls.on(Hls.Events.LEVEL_SWITCHED, function(event, data) {
-                        
+                
