@@ -23,7 +23,6 @@
         #my-video {
             width: 80%;
             max-width: 800px;
-            display: none;
             border: 5px solid transparent;
             border-radius: 10px;
             animation: border-animation 5s infinite;
@@ -103,9 +102,10 @@
         }
         .logo {
             position: absolute;
-            top: 10px;
+            top: -50px; /* Adjust the top position as needed */
             left: 10px;
-            width: 100px; /* Adjust the width as needed */
+            width: 150px; /* Adjust the width as needed */
+            z-index: 1; /* Ensure the logo appears above the video */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -192,6 +192,4 @@
             const activeQuality = hls.levels[hls.currentLevel];
             qualityOptions.value = activeQuality.height;
         }
-    </script>
-</body>
-</html>
+        
