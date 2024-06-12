@@ -119,18 +119,17 @@
         #support-btn {
             padding: 10px 20px;
             font-size: 16px;
-            margin-top: 10px;
-            background-color: #1e90ff;
+            margin-top: 20px; /* Increased margin */
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             position: absolute;
-            top: 50%; /* Center vertically */
-            transform: translateY(10%); /* Move down by 10% */
+            bottom: 10px; /* Position at the bottom */
         }
         #support-btn:hover {
-            background-color: #1c86ee; /* darker shade of blue on hover */
+            background-color: #45a049; /* darker shade of green on hover */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -151,6 +150,7 @@
             </select>
         </div>
     </div>
+    <button id="support-btn">Support</button>
     <footer><span class="footer-text">Made By <a href="" style="color: inherit; text-decoration: none;">Talha</a></span></footer>
 
     <script>
