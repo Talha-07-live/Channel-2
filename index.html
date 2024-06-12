@@ -37,14 +37,15 @@
             padding: 10px 20px;
             font-size: 16px;
             margin-top: 10px;
-            background-color: #1e90ff;
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         #submit-btn:hover {
-            background-color: #1c86ee; /* darker shade of blue on hover */
+            background-color: #45a049;
         }
         .video-container {
             position: relative;
@@ -76,60 +77,25 @@
             animation: gradient-animation 5s infinite;
             background-size: 300%;
         }
-
-        @keyframes gradient-animation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes border-animation {
-            0% {
-                border-color: #ff6b6b;
-            }
-            20% {
-                border-color: #ff9f43;
-            }
-            40% {
-                border-color: #feca57;
-            }
-            60% {
-                border-color: #48dbfb;
-            }
-            80% {
-                border-color: #1dd1a1;
-            }
-            100% {
-                border-color: #f368e0;
-            }
-        }
-
         .logo {
             position: absolute;
-            top: 400px;
-            left: 75px;
+            top: 350px;
+            left: 70px;
             width: 200px; /* Adjust the width as needed */
         }
         #support-btn {
             padding: 10px 20px;
             font-size: 16px;
-            margin-top: 35px; /* Adjusted margin-top */
-            background-color: #4CAF50;
+            margin-top: 10px;
+            background-color: #1e90ff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            position: relative; /* Changed to relative positioning */
-            bottom: -30px; /* Adjusted downward distance */
+            transition: background-color 0.3s ease;
         }
         #support-btn:hover {
-            background-color: #45a049; /* darker shade of green on hover */
+            background-color: #1c86ee;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -139,6 +105,7 @@
         <h1>Enter Password</h1>
         <input type="password" id="password" placeholder="Password">
         <button id="submit-btn">Submit</button>
+        <button id="support-btn">Support</button>
     </div>
     <div class="video-container">
         <img src="https://s12.gifyu.com/images/SYRXk.png" alt="Logo" class="logo">
@@ -150,7 +117,6 @@
             </select>
         </div>
     </div>
-    <button id="support-btn">Support</button>
     <footer><span class="footer-text">Made By <a href="" style="color: inherit; text-decoration: none;">Talha</a></span></footer>
 
     <script>
