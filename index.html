@@ -1,5 +1,3 @@
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -27,7 +25,7 @@
             max-width: 1000px;
             border: 5px solid transparent;
             border-radius: 10px;
-            animation: border-animation 10s infinite;
+            animation: border-animation 5s infinite;
             background-clip: border-box;
             display: none; /* Initially hide HLS video player */
         }
@@ -67,7 +65,6 @@
             width: 90%;
             max-width: 800px;
             display: flex;
-            background-color: #ffffff;
             justify-content: center;
             margin-top: 20px; /* Added margin to separate from login form */
             position: relative; /* Added relative positioning */
@@ -112,19 +109,36 @@
         }
         #cricket-btn {
             position: absolute;
-            top: -290px;
+            top: -340px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #ff6b6b;
             color: white;
             border: none;
-            padding: 10px 25px;
-            font-size: 12px;
+            padding: 10px 20px;
+            font-size: 10px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 4px;
             transition: background-color 0.3s ease;
         }
         #cricket-btn:hover {
+            background-color: #d9534f;
+        }
+        #copa-btn {
+            position: absolute;
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        #copa-btn:hover {
             background-color: #d9534f;
         }
         footer {
@@ -180,6 +194,13 @@
             transform: translateX(-50%);
             width: 200px; /* Adjust the width as needed */
         }
+        .logo-top-right {
+            position: absolute;
+            top: -190px;
+            right: -2px;
+            width: 70px; /* Adjust the size of the top-right logo */
+            display: none; /* Initially hide logo */
+        }
         .visitor-counter {
             position: absolute;
             bottom: -90px;
@@ -199,23 +220,26 @@
         <input type="password" id="password" placeholder="Password">
         <button id="submit-btn">Submit</button>
         <button id="cricket-btn" onclick="redirectToCricket()">Cricket World Cup Live</button>
+        <button id="copa-btn" onclick="redirectToCopa()">Copa America Live</button>
     </div>
     <div class="video-container">
-        <img src="https://s12.gifyu.com/images/SYa8u.png" alt="Logo" class="logo">
+        <img src="https://s10.gifyu.com/images/SrMU9.png" alt="Logo" class="logo">
         <video id="my-video" controls width="640" height="264" src="https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8"></video>
-        <iframe id="my-iframe" src="https://anym3u8player.com/p2p-player-generator-jwplayer/mplay.php?data=nCLCQmLtFml/wHRSNI+EmeWTWnnEpQdcxQMX0EFrPUzJCnYSpNG4hdKQm2A90WpMdVt4SbQvRfCQg3qG09sqnIFBCGmX89mTpUO9i1VGpbfi/ovzovKFPHWUAiKRoXlRb1qUNioEJjtffHBYEbGdrVZfovVtNQrI6niG1sNwZrxSCnBvaD7Oar0GyXzYDnMylWGgNer63tC72dxzBZR33plvESJ83szJ+QSpbtKwwR+k0UKOkwi3SwtCmIsj3fpm4jqqHTMc9G1Y2tc=" width="100%" height="225px" frameborder="0" allowfullscreen style="display: none;"></iframe>
+        <iframe id="my-iframe" src="https://talha-07-live.github.io/M3U8P2P/" width="100%" height="225px" frameborder="0" allowfullscreen style="display: none;"></iframe>
+        <img src="https://s12.gifyu.com/images/SrMx2.png" alt="Logo Top Right" class="logo-top-right" id="logo-top-right">
         <!-- Removed the quality-controls section -->
         <button class="support-button" onclick="openSupport()">Support</button>
         <button id="cricket-btn" onclick="redirectToCricket()">Cricket World Cup Live</button>
+        <button id="copa-btn" onclick="redirectToCopa()">Copa America Live</button>
         <div class="ticker-container">
             <div class="ticker-text">
-                Click Inside The Player Play Button To Play Video. If Video Not Play Refresh The Page And Try Again An Any Other Issues Click "Support" Button And Submit Your Report, Thanks!             **[Note* By accessing our streaming site you acknowledge that we aggregate freely available streaming links we are not responsible any copyright concerns, please contact us at click "support" button]**
+                Click Inside The Player Play Button To Play Video And Wait 30 Second For Buffer Loading. If Video Not Play Refresh The Page And Try Again An Any Other Issues Click "Support" Button And Submit Your Report, Thanks!             **[Note* By accessing our streaming site you acknowledge that we aggregate freely available streaming links we are not responsible any copyright concerns, please contact us at click "support" button]**
             </div>
         </div>
     </div>
     <footer><span class="footer-text">Made By <a href="" style="color: inherit; text-decoration: none;">Talha</a></span></footer>
     <div class="visitor-counter">
-        <a href='https://www.free-counters.org/' style="text-decoration: none; color: inherit;">Visitor Count</a>
+        <a href='https://www.free-counters.org/' style="text-decoration: none; color: inherit;">Talha</a>
         <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=be71ed1b8e490aace689fd6f1b06c8f6894b8a87'></script>
         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1193066/t/0"></script>
     </div>
@@ -228,6 +252,7 @@
         const videoPlayer = document.getElementById('my-video');
         const iframePlayer = document.getElementById('my-iframe');
         const tickerContainer = document.querySelector('.ticker-container'); // Select the ticker container
+        const logoTopRight = document.getElementById('logo-top-right');
         
         submitBtn.addEventListener('click', () => {
             if (passwordInput.value === PASSWORD) {
@@ -237,6 +262,8 @@
                 iframePlayer.onclick = () => {
                 };
                 tickerContainer.style.display = 'block'; // Show ticker after successful login
+                logoTopRight.style.display = 'block'; // Show the top-right logo after successful login
+                
             } else {
                 alert('Incorrect password. Please try again.');
             }
@@ -250,14 +277,8 @@
             window.location.href = "https://photospace.life/CUFIE5";
         }
 
-        function toggleFullScreen(element) {
-            if (!document.fullscreenElement) {
-                element.requestFullscreen().catch(err => {
-                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                });
-            } else {
-                document.exitFullscreen();
-            }
+        function redirectToCopa() {
+            window.location.href = "https://humsab.xyz/In_Hin/index.m3u8";
         }
     </script>
 </body>
