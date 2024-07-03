@@ -1,3 +1,29 @@
+  }
+        });
+
+        function openSupport() {
+            window.open("https://t.me/talhasmovie_request_bot", "_blank");
+        }
+
+        function redirectToCricket() {
+            window.location.href = "https://photospace.life/CUFIE5";
+        }
+
+        function redirectToCopa() {
+            window.location.href = "https://photospace.life/CW4ZJG";
+        }
+
+        function changeServer(server) {
+            const servers = {
+                server1: "https://anym3u8player.com/tv/p.php?url=https%3A%2F%2Fpc.sandipsitaula2023.com.np%2FTV%2Ftsport1.m3u8",
+                server2: "https://talha-07-live.github.io/Talhas-Web-Host2/",
+                server3: "https://talha-07-live.github.io/Talhas-Web-Host4/"
+            };
+            iframePlayer.src = servers[server];
+        }
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -93,8 +119,8 @@
         .support-button {
             position: absolute;
             top: -250px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 28%;
+            transform: translateX(-28%);
             background-color: #28a745;
             color: white;
             border: none;
@@ -106,6 +132,23 @@
         }
         .support-button:hover {
             background-color: #28a745;
+        }
+        #install-app-btn {
+            position: absolute;
+            top: -250px;
+            left: 38%;
+            transform: translateX(38%);
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 13px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        #install-app-btn:hover {
+            background-color: #138496;
         }
         #cricket-btn {
             position: absolute;
@@ -245,6 +288,7 @@
         <iframe id="my-iframe" src="https://anym3u8player.com/tv/p.php?url=https%3A%2F%2Fpc.sandipsitaula2023.com.np%2FTV%2Ftsport1.m3u8" height="225px" poster="https://s10.gifyu.com/images/SYGkR.jpg" frameborder="0" allowfullscreen style="display: none;" allow="encrypted-media"></iframe>
         <img src="https://s12.gifyu.com/images/SrMx2.png" alt="Logo Top Right" class="logo-top-right" id="logo-top-right">
         <button class="support-button" onclick="openSupport()">Support</button>
+        <button id="install-app-btn" onclick="installApp()">Android App</button>
         <button id="cricket-btn" onclick="redirectToCricket()">Cricket World Cup Live</button>
         <button id="copa-btn" onclick="redirectToCopa()">UEFA EURO Cup Live</button>
         <div class="ticker-container">
@@ -292,6 +336,10 @@
 
         function openSupport() {
             window.open("https://t.me/talhasmovie_request_bot", "_blank");
+        }
+
+        function installApp() {
+            window.location.href = "https://www.upload-apk.com/9FZmZdL7QvFsBu7"; // Replace with your app installation link
         }
 
         function redirectToCricket() {
